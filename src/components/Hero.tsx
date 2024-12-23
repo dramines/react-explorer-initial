@@ -1,48 +1,80 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Hero = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+  const banners = [
+    {
+      image: 'banner.png',
+      title: 'Beautiful Nature'
+    },
+    {
+      image: 'banner2.png',
+      title: 'Urban Landscape'
+    },
+    {
+      image: 'banner3.png',
+      title: 'Mountain View'
+    }
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentIndex((prevIndex) => 
+        prevIndex === banners.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 8000);
+
+    return () => clearInterval(timer);
+  }, []);
+
   return (
-    <section className="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-soft-white to-transparent opacity-50" />
-      
-      <div className="relative z-10 max-w-4xl mx-auto text-center">
-        <motion.span 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-block px-4 py-1.5 mb-6 text-sm font-medium bg-elegant-light bg-opacity-50 backdrop-blur-sm rounded-full text-elegant-dark"
-        >
-          Welcome to Excellence
-        </motion.span>
+    <section className="relative h-screen overflow-hidden">
+      <AnimatePresence mode='wait'>
+        <motion.div
+          key={currentIndex}
+          className="absolute inset-0 bg-cover bg-center"
+          style={{
+            backgroundImage: `url('${banners[currentIndex].image}')`,
+            willChange: 'transform'
+          }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.95 }}
+          transition={{
+            duration: 1.2,
+            ease: [0.43, 0.13, 0.23, 0.96]
+          }}
+        />
+      </AnimatePresence>
 
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-5xl md:text-7xl font-bold mb-6 text-elegant-dark"
-        >
-          Crafted with Precision
-        </motion.h1>
+      <div className="absolute inset-0 bg-black/50" />
 
-        <motion.p 
+      <div className="absolute bottom-8 w-full px-4 md:px-8 lg:left-8 lg:bottom-12 lg:w-auto">
+        <motion.h2 
+          key={`title-${currentIndex}`}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-lg md:text-xl text-elegant-dark/80 mb-8 max-w-2xl mx-auto"
+          exit={{ opacity: 0, y: -20 }}
+          className="text-white text-xl md:text-2xl font-bold mb-3 text-center lg:text-left"
         >
-          Experience design that transcends the ordinary, where every detail is meticulously considered and crafted to perfection.
-        </motion.p>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-        >
-          <button className="px-8 py-3 bg-elegant-dark text-white rounded-lg transition-transform hover:scale-105 active:scale-100">
-            Explore More
-          </button>
-        </motion.div>
+          {banners[currentIndex].title}
+        </motion.h2>
+        
+        <div className="w-32 md:w-44 h-[3px] bg-gray-600 rounded-full mx-auto lg:mx-0">
+          <motion.div
+            className="h-full bg-white rounded-full"
+            initial={{ width: '0%' }}
+            animate={{ width: '100%' }}
+            transition={{
+              duration: 8,
+              ease: 'linear',
+              repeat: 0
+            }}
+            key={`progress-${currentIndex}`}
+          />
+        </div>
       </div>
     </section>
   );
