@@ -23,14 +23,14 @@ const ProductCard = ({ product }: ProductCardProps) => {
         />
       </div>
       <div className="p-2 md:p-4">
-        <div className="text-base font-['WomanFontBold'] text-[#591C1C]">
+        <div className="text-base font-['WomanFontRegular'] text-[#591C1C]">
           {product.name}
         </div>
         <div className="text-sm text-gray-600 uppercase">
           {product.material}<br />
           {product.color}
         </div>
-        <div className="mt-2 font-bold text-black">
+        <div className="mt-2 font-['WomanFontRegular'] text-black">
           {product.price} TND
         </div>
       </div>
