@@ -96,7 +96,7 @@ const BrandLocation = () => {
           <br></br>
           <br></br>
             <div className="text-center">
-              <h2 className="text-3xl mb-6 font-['WomanFontBold']">Feedbacks</h2>
+              <h2 className="text-3xl mb-6 font-['WomanFontRegular']">Feedbacks</h2>
               <div className="glass-effectFeedback bg-white/10 rounded-lg p-5 mb-6">
                 <div className="min-h-[100px] flex flex-col justify-center">
                   <p className="text-xl mb-3 leading-relaxed">{feedbacks[currentFeedback].text}</p>

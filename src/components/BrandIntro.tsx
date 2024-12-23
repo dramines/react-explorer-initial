@@ -19,15 +19,15 @@ const BrandIntro = () => {
 
           <div className="flex-1 bg-white text-[#591C1C] px-6 sm:px-14 py-20 flex flex-col justify-between rounded-lg shadow-lg">
             <div className="space-y-12">
-              <p className="leading-loose text-xl font-['WomanFontBold']">
+              <p className="leading-loose text-xl font-['WomanFontRegular']">
                 Fiori, fondée en 2014, est une marque tunisienne qui s'intègre dans l'univers du prêt-à-porter et maroquinerie de haute gamme pour homme.
               </p>
              
-              <p className="leading-loose text-xl font-['WomanFontBold']">
+              <p className="leading-loose text-xl font-['WomanFontRegular']">
                 Nous proposons une large gamme d'articles, notamment la chemise, le polo, le pantalon, la costume, la veste etc...
               </p>
              
-              <p className="leading-loose text-xl font-['WomanFontBold']">
+              <p className="leading-loose text-xl font-['WomanFontRegular']">
                 Egalement, nous proposons une large gamme de maroquinerie telle que la ceinture, le portefeuille, le porte-chéquier, le porte-document, le porte-passeport, la malette etc...
               </p>
             </div>
