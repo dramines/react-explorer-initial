@@ -26,8 +26,8 @@ const SizeSelector = ({ selectedSize, sizes, onSizeSelect }: SizeSelectorProps) 
             className={cn(
               "py-1.5 text-sm font-['WomanFontRegular'] rounded transition-all duration-200",
               selectedSize === size 
-                ? 'bg-[#700100] text-white' 
-                : 'bg-white border border-gray-200 text-gray-900 hover:border-[#700100]'
+                ? 'bg-[#700100] text-white shadow-md transform scale-105' 
+                : 'bg-white border border-gray-200 text-gray-900 hover:border-[#700100] hover:bg-gray-50'
             )}
           >
             {size}
