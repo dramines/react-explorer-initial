@@ -6,6 +6,7 @@ import MobileMenuOverlay from "./navigation/MobileMenuOverlay";
 import { menuItems } from "@/constants/menuItems";
 import StoreLocationsModal from "./StoreLocationsModal";
 import ContactModal from "./ContactModal";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const TopNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ const TopNavbar = () => {
   };
 
   return (
-    <div className="font-['Montserrat'] font-light">
+    <div className="font-['WomanFontRegular']">
       <nav className="bg-primary px-6 py-4 shadow-md">
         <div className="container mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 sm:gap-0">
           <div className="flex items-center justify-between w-full sm:w-auto">
@@ -63,6 +64,7 @@ const TopNavbar = () => {
               CONTACTEZ-NOUS
             </button>
             
+            <LanguageSwitcher />
             <CartIcon />
           </div>
         </div>
